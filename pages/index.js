@@ -1,7 +1,7 @@
 const Index = () => {
   return (
     <>
-      <h1>Hello World</h1>
+      <h1 class="jumbotron text-center bg-primary square">Hello World</h1>
       <p>from NextJS</p>
     </>
   );
