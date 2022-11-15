@@ -12,7 +12,7 @@ import axios from "axios";
 import {toast} from "react-toastify";
 import { useRouter } from "next/router";
 
-const { Item, SubMenu } = Menu;
+const { Item, SubMenu, ItemGroup } = Menu;
 
 const TopNav = () => {
 
@@ -64,14 +64,26 @@ const TopNav = () => {
         )}
 
         { user !== null && (
-            <SubMenu icon={<CoffeeOutlined />} title={user && user.name} className="float-right">
-                <Item
-                    onClick={logout}
-                    icon={<LogoutOutlined />}
-                    className="float-right"
-                >
-                    Logout
-                </Item>
+            <SubMenu
+                icon={<CoffeeOutlined />}
+                title={user && user.name}
+                className="float-right">
+
+                <ItemGroup>
+                    <Item key="/user">
+                        <Link href="/user">
+                            <a>Dashboard</a>
+                        </Link>
+                    </Item>
+                    <Item
+                        onClick={logout}
+                        icon={<LogoutOutlined />}
+                        className="float-right"
+                    >
+                        Logout
+                    </Item>
+                </ItemGroup>
+
             </SubMenu>
         )}
 
